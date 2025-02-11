@@ -10,7 +10,7 @@ RUN apt-get update
 RUN apt-get install nodejs -y
 RUN npm install -g @angular/cli@latest
 RUN echo "Install v0.3.0 of Spellbook UI"
-RUN git clone --depth 1 --branch v0.3.0 https://github.com/noco-ai/spellbook-ui.git /app
+RUN git clone --depth 1 https://github.com/keithhenning/spellbook-docker.git /app
 WORKDIR /app
 RUN npm install
 ADD spellbook/environment.ts /app/environments/environment.ts
