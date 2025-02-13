@@ -21,7 +21,7 @@ RUN chown -R arcane:arcane /app
 ENV NPM_CONFIG_PREFIX=/app/.npm-global
 ENV PATH=$PATH:/app/.npm-global/bin
 USER arcane
-RUN npm install && npm run compile
+RUN npm install && sed -i '1755d' /app/node_modules/jimp/dist/commonjs/index.d.ts && npm run compile
 CMD ["npm", "run", "start", "--", "-vh", "http://10.23.82.2:8200", "-vt", "/vault_share/write-token", "-cs"]
 # CMD tail -f /dev/null
 # npm run start -- -vh http://10.23.82.2:8200 -vt /vault_share/write-token
